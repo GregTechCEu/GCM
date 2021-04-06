@@ -18,11 +18,19 @@ import static gregtech.common.items.MetaItems.*;
 
 public class CircuitReplacements {
     public static void init() {
-        FluidStack fluidStack = Materials.SolderingAlloy.getFluid(288);
+        FluidStack fluidStack = Materials.SolderingAlloy.getFluid(72);
         Collection<Recipe> rCopy = new ArrayList<>(CIRCUIT_ASSEMBLER_RECIPES.getRecipeList());
         for (Recipe recipe : rCopy) {
             CIRCUIT_ASSEMBLER_RECIPES.removeRecipe(recipe);
         }
+
+        CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(120).EUt(300)
+                .inputs(COLOURED_LEDS.getStackForm(4))
+                .inputs(PLASTIC_BOARD.getStackForm())
+                .input(wireFine, Aluminium, 4)
+                .fluidInputs(fluidStack)
+                .outputs(DISPLAY.getStackForm())
+                .buildAndRegister();
 
         //ELECTRONICS   //PROCESSOR
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(100).EUt(16).outputs(BASIC_ELECTRONIC_CIRCUIT_LV.getStackForm(3)).inputs(RESISTOR.getStackForm(8), CAPACITOR.getStackForm(8), GOOD_PHENOLIC_BOARD.getStackForm(), CENTRAL_PROCESSING_UNIT.getStackForm()).input(wireFine, Copper, 4).fluidInputs(fluidStack).buildAndRegister();
