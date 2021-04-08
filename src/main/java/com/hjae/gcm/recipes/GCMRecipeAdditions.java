@@ -21,7 +21,7 @@ public class GCMRecipeAdditions {
                 .inputs(MetaItems.ROBOT_ARM_LUV.getStackForm(2))
                 .inputs(MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING, 4))
                 .input(circuit, MarkerMaterials.Tier.Master, 2)
-                .inputs(MetaItems.PLATE_IRIDIUM_ALLOY.getStackForm(16))
+                .inputs(MetaItems.PLATE_IRIDIUM_ALLOY.getStackForm(4))
                 .input(gear, Materials.HSSG, 4)
                 .input(plate, GAMaterials.RhodiumPlatedPalladium, 8)
                 .input(screw, GAMaterials.Ruridit, 16)
