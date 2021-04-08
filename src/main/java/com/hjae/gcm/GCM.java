@@ -1,5 +1,6 @@
 package com.hjae.gcm;
 
+import com.hjae.gcm.tileentities.GCMTileEntities;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,6 +20,7 @@ public class GCM {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
+        GCMTileEntities.init();
     }
 
     @EventHandler
