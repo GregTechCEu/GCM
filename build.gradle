@@ -8,14 +8,13 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
 version = "1.1.0"
-group = "com.hjae.gcm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "com.hjae.gcm"
 archivesBaseName = "gcm"
 
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
@@ -23,14 +22,7 @@ compileJava {
 minecraft {
     version = "1.12.2-14.23.5.2847"
     runDir = "run"
-    
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20171003"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    mappings = "stable_39"
 }
 
 repositories {
@@ -57,6 +49,13 @@ dependencies {
     deobfCompile "codechicken:ChickenASM:1.12-1.0.2.9"
     deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.23-16"
 
+}
+
+jar {
+    manifest {
+        attributes 'FMLCorePlugin': 'com.hjae.gcm.core.GCMLoadingPlugin'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
 }
 
 processResources {
