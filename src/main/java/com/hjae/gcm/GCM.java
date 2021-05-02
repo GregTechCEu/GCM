@@ -8,8 +8,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = GCM.MODID, name = GCM.NAME, version = GCM.VERSION,
-        dependencies = "required-after:gregtech@[1.13.0.681,);" +
-                "required-after:gtadditions")
+        dependencies = "required-after:gregtech@[1.14.0.689,);" +
+                "required-after:gtadditions@[0.22.2,)")
 public class GCM {
     public static final String MODID = "gcm";
     public static final String NAME = "GCM";
