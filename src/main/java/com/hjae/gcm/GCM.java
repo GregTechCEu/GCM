@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(modid = GCM.MODID, name = GCM.NAME, version = GCM.VERSION,
         dependencies = "required-after:gregtech@[1.15.0.721,);" +
-                "required-after:gtadditions@[0.22.3.1,)")
+                "required-after:gtadditions@[0.22.4,)")
 public class GCM {
     public static final String MODID = "gcm";
     public static final String NAME = "GCM";
