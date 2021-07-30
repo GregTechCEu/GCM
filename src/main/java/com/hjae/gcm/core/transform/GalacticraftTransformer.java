@@ -14,13 +14,30 @@ public class GalacticraftTransformer extends GCMTransformer.ClassMapper implemen
         return new ClassVisitor(ASM5, cv) {
             @Override
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
-                if (name.equals("oreDictRegistrations"))
+                if (name.equals("oreDictRegistrations")) {
                     return new MethodVisitor(api, super.visitMethod(access, name, desc, signature, exceptions)) {
                         @Override
                         public void visitCode() {
                             this.visitInsn(RETURN);
                         }
                     };
+                }
+                else if (name.equals("oreDictRegistration")) {
+                    return new MethodVisitor(api, super.visitMethod(access, name, desc, signature, exceptions)) {
+                        @Override
+                        public void visitCode() {
+                            this.visitInsn(RETURN);
+                        }
+                    };
+                }
+                else if (name.equals("addUniversalRecipes")) {
+                    return new MethodVisitor(api, super.visitMethod(access, name, desc, signature, exceptions)) {
+                        @Override
+                        public void visitCode() {
+                            this.visitInsn(RETURN);
+                        }
+                    };
+                }
                 return super.visitMethod(access, name, desc, signature, exceptions);
             }
         };

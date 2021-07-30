@@ -17,6 +17,15 @@ public class GCMTransformer implements IClassTransformer {
                 mapper = ThutElevatorTransformer.INSTANCE;
                 break;
             case "micdoodle8.mods.galacticraft.core.GCBlocks":
+            case "micdoodle8.mods.galacticraft.core.GCItems":
+            case "micdoodle8.mods.galacticraft.core.recipe.RecipeManagerGC":
+            case "micdoodle8.mods.galacticraft.planets.mars.blocks.MarsBlocks":
+            case "micdoodle8.mods.galacticraft.planets.mars.recipe.RecipeManagerMars":
+            case "micdoodle8.mods.galacticraft.planets.venus.blocks.VenusBlocks": // Doesnt work? doesnt cause issues afak
+            case "micdoodle8.mods.galacticraft.planets.venus.recipe.RecipeManagerVenus":
+            case "micdoodle8.mods.galacticraft.planets.asteroids.blocks.AsteroidBlocks":
+            case "micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems":
+            case "micdoodle8.mods.galacticraft.planets.asteroids.recipe.RecipeManagerAsteroids":
                 mapper = GalacticraftTransformer.INSTANCE;
                 break;
             default:
