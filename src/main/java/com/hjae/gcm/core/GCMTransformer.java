@@ -1,6 +1,6 @@
 package com.hjae.gcm.core;
 
-import com.hjae.gcm.GCM;
+import com.hjae.gcm.core.transform.GalacticraftTransformer;
 import com.hjae.gcm.core.transform.ThutElevatorTransformer;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
@@ -16,10 +16,13 @@ public class GCMTransformer implements IClassTransformer {
             case "thut.tech.common.handlers.ItemHandler":
                 mapper = ThutElevatorTransformer.INSTANCE;
                 break;
+            case "micdoodle8.mods.galacticraft.core.GCBlocks":
+                mapper = GalacticraftTransformer.INSTANCE;
+                break;
             default:
                 return basicClass;
         }
-        GCM.logger.info("Transforming class: " + transformedName);
+        //GCM.logger.info("Transforming class: " + transformedName); // TODO: why the hell is this creating an error during pre-initialisation
         return mapper.transformClass(basicClass);
     }
 
