@@ -25,8 +25,13 @@ compileJava {
 minecraft {
     version = "1.12.2-14.23.5.2847"
     runDir = "run"
-    mappings = "stable_39"
+    mappings = "snapshot_20171003"
 }
+
+project.ext {
+    gcbuild = "261"
+}
+apply from: "https://raw.githubusercontent.com/ReadOnlyDevelopment/gradle/galacticraft/dev.gradle"
 
 repositories {
     maven {
@@ -51,7 +56,6 @@ dependencies {
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.358:universal"
     deobfCompile "codechicken:ChickenASM:1.12-1.0.2.9"
     deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.23-16"
-
 }
 
 jar {
