@@ -1,6 +1,6 @@
 package com.hjae.gcm.core;
 
-import com.hjae.gcm.GCM;
+import com.hjae.gcm.core.transform.GalacticraftTransformer;
 import com.hjae.gcm.core.transform.ThutElevatorTransformer;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
@@ -16,10 +16,22 @@ public class GCMTransformer implements IClassTransformer {
             case "thut.tech.common.handlers.ItemHandler":
                 mapper = ThutElevatorTransformer.INSTANCE;
                 break;
+            case "micdoodle8.mods.galacticraft.core.GCBlocks":
+            case "micdoodle8.mods.galacticraft.core.GCItems":
+            case "micdoodle8.mods.galacticraft.core.recipe.RecipeManagerGC":
+            case "micdoodle8.mods.galacticraft.planets.mars.blocks.MarsBlocks":
+            case "micdoodle8.mods.galacticraft.planets.mars.recipe.RecipeManagerMars":
+            case "micdoodle8.mods.galacticraft.planets.venus.blocks.VenusBlocks": // Doesnt work? doesnt cause issues afak
+            case "micdoodle8.mods.galacticraft.planets.venus.recipe.RecipeManagerVenus":
+            case "micdoodle8.mods.galacticraft.planets.asteroids.blocks.AsteroidBlocks":
+            case "micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems":
+            case "micdoodle8.mods.galacticraft.planets.asteroids.recipe.RecipeManagerAsteroids":
+                mapper = GalacticraftTransformer.INSTANCE;
+                break;
             default:
                 return basicClass;
         }
-        GCM.logger.info("Transforming class: " + transformedName);
+        //GCM.logger.info("Transforming class: " + transformedName); // TODO: why the hell is this creating an error during pre-initialisation
         return mapper.transformClass(basicClass);
     }
 
