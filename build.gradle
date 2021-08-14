@@ -43,6 +43,9 @@ repositories {
     maven {
         url = "http://dvs1.progwml6.com/files/maven/"
     }
+    maven {
+        url = "https://www.cursemaven.com/"
+    }
     maven { // TOP
         name 'tterrag maven'
         url "https://maven.tterrag.com/"
@@ -56,6 +59,8 @@ dependencies {
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.358:universal"
     deobfCompile "codechicken:ChickenASM:1.12-1.0.2.9"
     deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.23-16"
+    deobfCompile "curse.maven:asmodeuscore-0.0.25-303101:3231302"
+    deobfCompile "curse.maven:galaxyspace-2.0.16-238770:3235468"
 }
 
 jar {

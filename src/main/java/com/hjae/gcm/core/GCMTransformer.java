@@ -1,7 +1,9 @@
 package com.hjae.gcm.core;
 
+import com.hjae.gcm.core.transform.GCVisitor;
 import com.hjae.gcm.core.transform.GalacticraftTransformer;
 import com.hjae.gcm.core.transform.ThutElevatorTransformer;
+import gregtech.common.asm.util.TargetClassVisitor;
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -28,6 +30,11 @@ public class GCMTransformer implements IClassTransformer {
             case "micdoodle8.mods.galacticraft.planets.asteroids.recipe.RecipeManagerAsteroids":
                 mapper = GalacticraftTransformer.INSTANCE;
                 break;
+            case "micdoodle8.mods.galacticraft.core.TransformerHooks":
+                ClassReader classReader = new ClassReader(basicClass);
+                ClassWriter classWriter = new ClassWriter(0);
+                classReader.accept(new TargetClassVisitor(classWriter, GCVisitor.TARGET_METHOD, GCVisitor::new), 0);
+                return classWriter.toByteArray();
             default:
                 return basicClass;
         }
