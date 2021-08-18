@@ -52,10 +52,13 @@ repositories {
 dependencies {
     deobfCompile "mezz.jei:jei_1.12.2:+"
     deobfCompile "gregtechce:gregtech:1.12.2:1.17.0.764"
-    deobfCompile "gregicality:gregicality:1.12.2:0.22.7"
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.358:universal"
     deobfCompile "codechicken:ChickenASM:1.12-1.0.2.9"
     deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.23-16"
+
+    compile files(
+            "libs/Gregicality-1.12.2-0.23-RC.jar",
+    )
 }
 
 jar {
